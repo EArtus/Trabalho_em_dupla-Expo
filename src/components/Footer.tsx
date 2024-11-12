@@ -1,10 +1,22 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+
+// Usando os mesmos tipos definidos anteriormente para Header
+type FooterNavigationType = StackNavigationProp<RootStackParamList>;
 
 const Footer = () => {
+  const navigation = useNavigation<FooterNavigationType>();
+
   return (
     <View style={styles.footer}>
-      <Text style={styles.text}>© 2024 - Meu App</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('UserPanelScreen')}>
+        <Text style={styles.text}>Painel do Usuário</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('RecyclingInfoScreen')}>
+        <Text style={styles.text}>Informações sobre Reciclagem</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -13,7 +25,9 @@ const styles = StyleSheet.create({
   footer: {
     backgroundColor: "#6200ea",
     padding: 10,
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
   },
   text: {
     fontSize: 16,

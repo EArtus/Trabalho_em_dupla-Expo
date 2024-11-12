@@ -7,16 +7,25 @@ import Icon from "react-native-vector-icons/Ionicons"; // Importando os ícones
 import HomeScreen from "./src/screens/HomeScreen";
 import UserDetailsScreen from "./src/screens/UserDetailsScreen";
 import AboutScreen from "./src/screens/AboutScreen";
-import EditUserScreen from "./src/screens/EditUserScreen"; 
-import AddUserScreen from "./src/screens/AddUserScreen"; // Certifique-se de importar o AddUserScreen
+import EditUserScreen from "./src/screens/EditUserScreen";
+import AddUserScreen from "./src/screens/AddUserScreen";
+import MapScreen from './src/screens/MapScreen';
+import SchedulePickupScreen from './src/screens/SchedulePickupScreen';
+import UserPanelScreen from './src/screens/UserPanelScreen';
+import RecyclingInfoScreen from './src/screens/RecyclingInfoScreen';
+
 
 // Definindo os parâmetros que as telas esperam
 type RootStackParamList = {
   Home: undefined;
   UserDetails: { userId: number };
-  EditUser: { userId: number };  // Adicionando EditUser na definição de tipos
-  AddUser: undefined;  // Adicionando AddUser na definição de tipos
+  EditUser: { userId: number };
+  AddUser: undefined;
   Tabs: undefined;
+  MapScreen: undefined;
+  SchedulePickupScreen: undefined;
+  UserPanelScreen: undefined;
+  RecyclingInfoScreen: undefined;
 };
 
 // Criando o Tab Navigator
@@ -32,7 +41,7 @@ const TabNavigator = () => {
           tabBarIcon: ({ color, size }) => (
             <Icon name="home-outline" color={color} size={size} />
           ),
-          tabBarLabel: "Início", // Altera o label se necessário
+          tabBarLabel: "Início",
         }}
       />
       <Tab.Screen
@@ -49,7 +58,7 @@ const TabNavigator = () => {
   );
 };
 
-// Criando o Stack Navigator para as telas Home, UserDetails e AddUser
+// Criando o Stack Navigator para as telas Home, UserDetails, AddUser e as novas telas
 const Stack = createStackNavigator<RootStackParamList>();
 
 const HomeStackNavigator = () => {
@@ -58,22 +67,42 @@ const HomeStackNavigator = () => {
       <Stack.Screen
         name="Tabs"
         component={TabNavigator}
-        options={{ headerShown: false }} // Oculta o header da navegação por tabs
+        options={{ headerShown: false }}
       />
       <Stack.Screen
         name="UserDetails"
         component={UserDetailsScreen}
-        options={{ title: "Detalhes do Usuário" }} // Mostra o título na tela de detalhes
+        options={{ title: "Detalhes do Usuário" }}
       />
       <Stack.Screen
         name="EditUser"
         component={EditUserScreen}
-        options={{ title: "Editar Usuário" }}  // Adicionando a rota EditUser
+        options={{ title: "Editar Usuário" }}
       />
       <Stack.Screen
         name="AddUser"
         component={AddUserScreen}
-        options={{ title: "Criar Novo Usuário" }} // Adicionando a rota AddUser
+        options={{ title: "Criar Novo Usuário" }}
+      />
+      <Stack.Screen
+        name="MapScreen"
+        component={MapScreen}
+        options={{ title: "Pontos de Descarte" }}
+      />
+      <Stack.Screen
+        name="SchedulePickupScreen"
+        component={SchedulePickupScreen}
+        options={{ title: "Agendar Coleta" }}
+      />
+      <Stack.Screen
+        name="UserPanelScreen"
+        component={UserPanelScreen}
+        options={{ title: "Painel do Usuário" }}
+      />
+      <Stack.Screen
+        name="RecyclingInfoScreen"
+        component={RecyclingInfoScreen}
+        options={{ title: "Informações sobre Reciclagem" }}
       />
     </Stack.Navigator>
   );

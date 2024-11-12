@@ -1,11 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
-const WasteInfoScreen = () => {
+const RecyclingInfoScreen = () => {
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.text}>
-        {"Tipos de Lixo e Descarte Correto\n\n"}
+    <View style={styles.container}>
+      <Text>{"Tipos de Lixo e Descarte Correto\n\n"}
         {"1. Lixo Orgânico\n"}
         {"Exemplos: Restos de comida, cascas de frutas, borra de café.\n"}
         {"Descarte: Lixeira verde. Pode ser transformado em adubo por compostagem.\n\n"}
@@ -23,22 +22,18 @@ const WasteInfoScreen = () => {
         {"Descarte: Caçambas específicas para resíduos de construção.\n\n"}
         {"6. Lixo Eletrônico (e-lixo)\n"}
         {"Exemplos: Celulares, computadores, televisores.\n"}
-        {"Descarte: Pontos de coleta de eletrônicos ou programas de devolução de empresas.\n"}
-      </Text>
-    </ScrollView>
+        {"Descarte: Pontos de coleta de eletrônicos ou programas de devolução de empresas.\n"}</Text>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
-    backgroundColor: '#f4f4f4',
-  },
-  text: {
-    fontSize: 16,
-    lineHeight: 24,  
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
   }
 });
 
-export default WasteInfoScreen;
+export default RecyclingInfoScreen;
