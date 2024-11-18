@@ -1,22 +1,29 @@
-Trabalho Avaliativo
-Você deverá rodar a API de usuários que está na pasta api para ter um backend online. Ele trabalha com banco de dados SQLite, portanto não precisar criar banco e tabelas, tudo é feito automático.
+O sistema é uma plataforma mobile que facilita a coleta e o descarte adequado de resíduos recicláveis para o Recanto Maestro.
 
-Para rodar a API, você deverá executar o comando npm i para instalar as dependências e após isso, rode o comando npm start para que a API esteja no ar. Ela irá rodar na porta 3000.
+1. Tela de Login/Registro
+  Permite que os usuários se registrem ou façam login.
+  Campos para email, senha e opção de recuperação de senha.
 
-Com a API rodando, agora você deverá criar um Aplicativo em React Native com Expo e Typescript para realizar o CRUD de usuários.
 
-Os dados do usuário a serem cadastrado são: name, email, login, password e city.
+2. Tela Principal (Home) - Tela principal será a tela de painel de usuário
+  Botão para acessar o mapa[Header]. -> Abre o mapa onde irá mostrar os pontos de descarte mais perto
+  Botão para agendar coleta[Header]. -> Abre outra tela, onde ira indicar qual o tipo de lixo, a quantidade e a data de horário para coleta
+  Botão de painel de usuário[Footer]. -> Irá mostrar coletas antigas mostrando a data e o tipo de resíduo
+  Botão de informações gerais sobre reciclagem[Footer]. -> Abre outra tela que irá ter informações sobre tipos de descarte
 
-Use stack navigation para criar a navegação no aplicativo.
+4. Tela de Mapa (Acessado depois de clicar no botão de mapa na Home)
+	Exibe um mapa com marcadores dos pontos de descarte mais próximos.
+	Informações sobre cada ponto, como horário de funcionamento.
 
-Crie um componente Header e um componente Footer para sempre aparecer no aplicativo.
+5. Tela de Agendamento de Coleta
+	Formulário com o tipo de lixo, a quantidade, a data e horário para coleta e o endereço
+	Resumo das solicitações agendadas.
 
-Você deverá criar uma tela Home para listar os dados de name e email dentro de cards. Em cada card, também deverá ter um botão para editar e outro para excluir o usuário. Além disso, se a pessoa clicar no card, ela vai ser direcionada para a tela de Details, onde vai mostrar todos os dados do usuário clicado.
+6. Tela de painel de usuário
+	Irá mostrar coletas antigas mostrando a data e o tipo de resíduo
+	Permite que os usuários gerenciem suas informações (nome, email, senha).
 
-Então as telas no aplicativo serão as seguintes:
+6.Tela de informações gerais sobre reciclagem
+	Irá ter informações sobre os tipos de descarte.
+	Dicas sobre como reciclar corretamente.
 
-Tela Home para mostrar alguns dados do usuário, com os botões para criar um novo usuário (no Header), editar o usuário específico, excluir um usuário ou ver detalhes deste usuário.
-Tela AddUser para cadastrar um novo usuário.
-Tela EditUser para editar um usuário cadastrado.
-Tela DetailsUser para mostrar todos os dados do usuário.
-Para o campo Cidade, você pode usar um select com a biblioteca: @react-native-picker/picker
